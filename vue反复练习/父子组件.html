@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<mzl></mzl>
+		</div>
+	</body>
+	<script>
+		var wzl={
+			template:'<h2 style="color:green">我也是，不想上班</h2>'
+		}
+		
+		var mzl={
+			/*这里的模板必须加上div包一下*/
+			template:'<div><h2 style="color:red">大家好我不想上班</h2><wzl></wzl></div>',
+			/*在父组件的内容里面加子组件*/
+			components:{
+				'wzl':wzl
+			}
+		}
+		var app=new Vue({
+			el:'#app',
+			components:{
+				'mzl':mzl
+			}
+		})
+	</script>
+</html>

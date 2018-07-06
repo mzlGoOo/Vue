@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<!--全局API-->
+		<!--自定义指令-->
+		<div id="app">
+			<h2 v-mzl='colorful'>这里的东西要爆炸</h2>
+			<h3 v-wzl='color'>这里的东西要爆炸</h3>
+		</div>
+	</body>
+	<script>
+		/*自定义指令*/
+		Vue.directive('mzl',function(el,binding){
+//			console.log(el); el是指含有mzl指定的dom元素
+//			console.log(binding);binding指的是一个对象,包含许多信息
+			el.style.color=binding.value;
+		})
+		Vue.directive('wzl',{
+			bind:function(el,binding){
+				console.log('被绑定')
+			},
+			inserted:function(el,binding){
+				el.style.color=binding.value;
+				console.log('被插入')
+			},
+			update:function(el,binding){
+				console.log('数据更新')
+			},
+			componentUpdate:function(el,binding){
+				console.log('模板数据更新完成')
+			},
+			unbind:function(el,binding){
+				console.log('解绑')
+			}
+		})
+		new Vue({
+			el:'#app',
+			data:{
+				colorful:'red',
+				color:'pink'
+			},
+		})
+		/**/
+	</script>
+</html>

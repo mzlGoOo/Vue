@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<template></template>
+		</div>
+		<div id="app2">
+			<template id="tep">
+				<h2 style="color: green;">回什么家，上班去</h2>
+			</template>
+		</div>
+		<div id="app3">
+			<script type="x-template" id="aaa">
+				<h2 style="color: darkcyan;">我不管，我就是不想工作</h2>
+			</script>
+		</div>
+	</body>
+	<script>
+		/*1 直接写在构造器的模板*/
+		var app=new Vue({
+			el:'#app',
+			template:'<h2 style="color:red">好困啊，我要回家</h2>'
+		})
+		/*2 写在template里面（利用id传值）*/
+		var app2=new Vue({
+			el:'#app2',
+			template:'#tep'
+		})
+		/*3 写在javascript中*/
+		var app3=new Vue({
+			el:'#app3',
+			template:'#aaa'
+		})
+	</script>
+</html>

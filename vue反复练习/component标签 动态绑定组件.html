@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<component :is='who'></component>
+			<button @click='change'>改变组件</button>
+		</div>
+		
+		<button onclick="changezujian()">切换组件</button>
+	</body>
+	<script>
+		var aaa={
+			template:'<h2>我是aaa组件</h2>'
+		}
+		var bbb={
+			template:'<h2>我是bbb组件</h2>'
+		}
+		var ccc={
+			template:'<h2>我是ccc组件</h2>'
+		}
+		var app=new Vue({
+			el:'#app',
+			data:{
+				who:'component1'
+			},
+			components:{
+				"component1":aaa,
+				'component2':bbb,
+				'component3':ccc
+			},
+			methods:{
+				change:function(){
+					if(this.who=='component1'){
+						this.who='component2'
+					}else if(this.who=='component2'){
+						this.who='component3'
+					}else{
+						this.who='component1'
+					}
+				}
+			}
+		})
+		function changezujian(){
+			if (app.who=='component1') {
+				app.who='component2';
+			} else if(app.who=='component2'){
+				app.who='component3'
+			}else{
+				app.who='component1'
+			}
+		}
+	</script>
+</html>

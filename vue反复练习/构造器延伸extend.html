@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<mzl></mzl>
+			<div id="wzl"></div>
+			<div class="mmm"></div>
+		</div>
+	</body>
+	<script>
+		var etd=Vue.extend({
+			template:"<h2>爆炸吧，{{name}}-----{{sex}}</h2>",
+			/*这里的data是方法，不是对象*/
+			data:function() {
+				return{
+					name:'mzl',
+					sex:'男'
+				}
+			}
+		})
+		/*将定义的扩展实例挂载到自定义的标签*/
+		new etd().$mount('mzl');
+//		挂载到有id的标签上
+		new etd().$mount('#wzl');
+//		挂载到有class的标签上（类似jquery）
+		new etd().$mount('.mmm');
+	</script>
+</html>

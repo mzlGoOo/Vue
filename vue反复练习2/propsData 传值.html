@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<mzl></mzl>
+	</body>
+	<script>
+		var etd=Vue.extend({
+			template:'<h2 style="color:red">马上就要下班了{{aaa}}</h2>',
+			props:['aaa']
+		})
+//		var pp={
+//			propsData:{
+//				aaa:'好开森'
+//			}
+//		}
+		new etd(pp).$mount('mzl')
+		new etd({propsData:{aaa:'好开森'}}).$mount('mzl')
+	</script>
+</html>

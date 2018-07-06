@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<mzl></mzl>
+		</div>
+		<div id="app2">
+			<wzl></wzl>
+		</div>
+		<div id="app3">
+			<mmm></mmm>
+		</div>
+	</body>
+	<script>
+		/*构造器里写组件*/
+		var app=new Vue({
+			el:'#app',
+			components:{
+				'mzl':{
+					template:'<h2 style="color: darkcyan;">我是里奥梅西，我想回家</h2>'
+				}
+			}
+		})
+		/*全局定义组件*/
+		Vue.component('wzl',{
+			template:'<h2 style="color:red">我是旺仔牛奶糖</h2>'
+		})
+		var app2=new Vue({
+			el:'#app2',
+		})
+		
+		/*构造器外定义局部组件*/
+		var lalal={
+			template:"<h2 style='color:green'>我就是想回家，就这么固执</h2>"
+		}
+		var app3=new Vue({
+			el:'#app3',
+			components:{
+				'mmm':lalal
+			}
+		})
+	</script>
+</html>

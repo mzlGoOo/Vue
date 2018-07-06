@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<mzl here='mzl'></mzl>
+		</div>
+		<div id="app2">
+			<wzl :here='wzl'></wzl>
+		</div>
+	</body>
+	<script>
+//		props选项就是设置和获取标签上的属性值的
+		var app=new Vue({
+			el:'#app',
+			components:{
+				'mzl':{
+					props:['here'],
+					template:'<h2 style="color:red">我是{{here}},我不想工作我想回家</h2>'
+				}
+			}
+		})
+		
+		var lalala={
+			props:['here'],
+			template:'<h2 style="color:red">我是{{here}},我也想回家</h2>'
+		}
+		var app2=new Vue({
+			el:'#app2',
+			data:{
+				wzl:'旺仔'
+			},
+			components:{
+				'wzl':lalala
+			}
+		})
+	</script>
+</html>

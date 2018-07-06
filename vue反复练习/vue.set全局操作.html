@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			商品：{{goodsName}}<br>
+			数量：{{count}}
+			<ul>
+				<li v-for="item in arr">{{item}}</li>
+			</ul>
+		</div>
+		<button onclick="changeNum()">改变商品数量</button>
+		<button onclick="changeArr()">改变数组的值</button>
+	</body>
+	<script>
+		var outData={
+			count:1,
+			goodsName:'car',
+			arr:['aaa','bbb','ccc']
+		}
+		var app=new Vue({
+			el:'#app',
+			data:outData
+		})
+//		Vue.set(Object,Key,value)
+		function changeNum(){
+			Vue.set(outData,'count','3')
+		}
+		function changeArr(){
+//			这里用js的方法设置Vue不会更新,只有通过set才能更新
+//			app.arr[0]='zzz';
+//			console.log('我已经执行了');
+
+			Vue.set(outData.arr,0,'zzz')
+		}
+		/*另外的两种方法*/
+//		app.count=5;
+//		outData.goodsName='飞机';
+	</script>
+</html>
